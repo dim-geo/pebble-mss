@@ -698,7 +698,7 @@ static void handle_bluetooth(bool connected) {
   {
     if (vibe_on_disconnect){
       // Vibe pattern: ON for 200ms, OFF for 100ms, ON for 400ms:
-      static const uint32_t const segments[] = { 40 };
+      static const uint32_t const segments[] = { 400 };
       VibePattern pat = {
         .durations = segments,
         .num_segments = ARRAY_LENGTH(segments),
@@ -1159,20 +1159,20 @@ static void main_window_load(Window *window) {
   
   #ifdef PBL_COLOR
     if (InvertColors == 2){
-      textcolor_background  = GColorFromRGB(0, 0, 0);
-      textcolor_sun         = GColorFromRGB(255, 255, 0);   //=GColorYellow //OK
-      textcolor_con         = GColorFromRGB(0, 170, 255);   //GColorVividCerulean
+      textcolor_background  = GColorFromRGB(255, 255, 255);
+      textcolor_sun         = GColorFromRGB(255, 85, 0);   //=GColorYellow //OK
+      textcolor_con         = GColorFromRGB(0, 0, 255);   //GColorVividCerulean
       textcolor_bat_uint8   = 0b11110000; //red
       textcolor_bat         = (GColor8){.argb = textcolor_bat_uint8};
       //APP_LOG(APP_LOG_LEVEL_INFO, "textcolor_bat = %d", (int)textcolor_bat); //this does not work
       textcolor_date        = GColorFromRGB(0, 170, 170);   //=GColorTiffanyBlue
-      textcolor_cal         = GColorFromRGB(0, 170, 170);   //=GColorTiffanyBlue
+      textcolor_cal         = GColorFromRGB(85, 0, 255);   //=GColorTiffanyBlue
       textcolor_moon        = GColorFromRGB(255, 255, 255); //OK
-      textcolor_weather     = GColorFromRGB(0, 255, 170);   //GColorMediumSpringGreen
-      textcolor_location    = GColorFromRGB(255, 170, 0);   //=GColorChromeYellow //OK
-      textcolor_last_update = GColorFromRGB(150, 150, 200); //OK
+      textcolor_weather     = GColorFromRGB(0, 85, 0);   //GColorMediumSpringGreen
+      textcolor_location    = GColorFromRGB(0, 0, 0);   //=GColorChromeYellow //OK
+      textcolor_last_update = GColorFromRGB(0, 0, 0); //OK
       textcolor_tz          = GColorFromRGB(100, 100, 100); //OK
-      textcolor_clock       = GColorFromRGB(0, 255, 0);
+      textcolor_clock       = GColorFromRGB(0, 170, 0);
       textcolor_seconds     = GColorFromRGB(0, 170, 170);
     } else {
       //if (InvertColors == 1){
@@ -1278,10 +1278,10 @@ static void main_window_load(Window *window) {
   layer_add_child(main_window_layer, text_layer_get_layer(Date_Layer));
   
   // Calendar Week
-  cwLayer = text_layer_create(GRect(100, 70, 40 /* width */, 30 /* height */)); 
+  cwLayer = text_layer_create(GRect(100, 63, 40 /* width */, 30 /* height */)); 
   text_layer_set_text_color(cwLayer, textcolor_cal);
   text_layer_set_background_color(cwLayer, GColorClear );
-  text_layer_set_font(cwLayer, fonts_get_system_font(FONT_KEY_GOTHIC_14));
+  text_layer_set_font(cwLayer, fonts_get_system_font(FONT_KEY_GOTHIC_24));
   text_layer_set_text_alignment(cwLayer, GTextAlignmentRight);
   layer_add_child(main_window_layer, text_layer_get_layer(cwLayer));
   

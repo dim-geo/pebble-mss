@@ -29,8 +29,8 @@
         "location",
         "configurable"
     ],
-    "companyName": "fg",
-    "longName": "M7S_watchface_10_2",
+    "companyName": "none",
+    "longName": "Test MSS stuff",
     "projectType": "native",
     "resources": {
         "media": [
@@ -52,13 +52,13 @@
         ]
     },
     "sdkVersion": "3",
-    "shortName": "M7S_watchface_10_2",
+    "shortName": "M7S_watchface",
     "targetPlatforms": [
         "aplite",
         "basalt"
     ],
-    "uuid": "03adc57a-569b-4669-9a80-b505eaea314d",
-    "versionLabel": "10.2",
+    "uuid": "a20e5be1-009a-46e2-99cc-edbca0732761",
+    "versionLabel": "0.1",
     "watchapp": {
         "watchface": true
     }
